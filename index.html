@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ABC — Dev Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --glass: rgba(255, 255, 255, 0.04);
+        --panel: rgba(12, 17, 23, 0.6);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(59, 130, 246, 0.05),
+            transparent 10%
+          ),
+          linear-gradient(180deg, #071023 0%, #0b1220 50%, #061018 100%);
+      }
+
+      .type-cursor {
+        display: inline-block;
+        width: 10px;
+        height: 1.1em;
+        background: linear-gradient(90deg, #60a5fa, #7c3aed);
+        margin-left: 6px;
+        animation: blink 1s steps(2) infinite;
+        vertical-align: middle;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px) scale(0.995);
+        transition: all 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .glass-border {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(8px);
+      }
+
+      .parallax {
+        transform-style: preserve-3d;
+        transition: transform 350ms ease-out, box-shadow 350ms ease;
+      }
+    </style>
+  </head>
+
+  <body class="text-gray-100 antialiased">
+    <!-- HEADER -->
+    <header
+      class="sticky top-0 z-40 backdrop-blur-md bg-gradient-to-r from-black/50 to-transparent border-b border-white/5"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between"
+      >
+        <a href="#" class="flex items-center gap-3">
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500 to-violet-600 shadow-lg"
+          >
+            <svg
+              viewBox="0 0 100 100"
+              class="w-7 h-7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="12"
+                y="20"
+                width="76"
+                height="60"
+                rx="10"
+                fill="white"
+                fill-opacity="0.08"
+              />
+              <path
+                d="M28 68 L44 32 L60 68"
+                stroke="white"
+                stroke-width="6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <div class="text-sm font-semibold">ABC</div>
+            <div class="text-xs text-gray-400">DevSpace</div>
+          </div>
+        </a>
+
+        <nav class="hidden sm:flex items-center gap-4 text-sm">
+          <a href="#showcase" class="text-gray-300 hover:text-white transition"
+            >Showcase</a
+          >
+          <a href="#projects" class="text-gray-300 hover:text-white transition"
+            >Projects</a
+          >
+          <a href="#contact" class="text-gray-300 hover:text-white transition"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+      <!-- HERO -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7">
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Clean, modern UI design<br class="hidden sm:inline" />
+            for developers & portfolios
+          </h1>
+          <p class="mt-4 text-gray-400 max-w-2xl">
+            Customized portfolio layout with animated code preview and
+            interactive project cards — optimized for interviews and GitHub
+            showcases.
+          </p>
+
+          <div class="mt-6 flex gap-3">
+            <a
+              href="#projects"
+              class="px-5 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-violet-600 shadow-md font-medium"
+              >See projects</a
+            >
+            <a
+              href="#contact"
+              class="px-5 py-3 rounded-lg border border-white/6 text-gray-300"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <!-- Profile -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div
+            class="glass-border rounded-2xl p-4 w-full max-w-xs flex flex-col items-center"
+          >
+            <img
+              src="assets/images/profile.png"
+              alt="Profile"
+              class="w-36 h-36 rounded-full border-4 border-sky-500 object-cover shadow-xl"
+            />
+            <h3 class="mt-4 font-semibold">Your Name</h3>
+            <p class="text-xs text-gray-400 mt-1 text-center">
+              Frontend Developer · UI / UX · Tailwind enthusiast
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHOWCASE -->
+      <section id="showcase" class="mt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 reveal glass-border rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-sky-400 rounded-full mt-2"></div>
+              <div class="w-full">
+                <div class="flex items-center justify-between">
+                  <div class="text-sm font-medium text-gray-300">
+                    Live Code Preview
+                  </div>
+                  <div class="text-xs text-gray-400">
+                    Type animation • read-only
+                  </div>
+                </div>
+
+                <pre
+                  id="codeArea"
+                  class="mt-4 bg-[#07090d] text-gray-200 rounded-xl p-5 overflow-x-auto"
+                  style="
+                    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+                      'Roboto Mono', monospace;
+                    min-height: 220px;
+                  "
+                ></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project cards -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="reveal">
+              <div class="glass-border rounded-2xl p-4 flex gap-4 items-center">
+                <div
+                  class="w-28 h-20 rounded-lg overflow-hidden parallax shadow-sm"
+                  style="
+                    background: url('assets/images/project1.png') center/cover
+                      no-repeat;
+                  "
+                ></div>
+                <div class="flex-1">
+                  <div class="font-semibold">Project One</div>
+                  <div class="text-sm text-gray-400 mt-1">
+                    Short subtitle • 2025
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <div class="glass-border rounded-2xl p-4 flex gap-4 items-center">
+                <div
+                  class="w-28 h-20 rounded-lg overflow-hidden parallax"
+                  style="
+                    background: url('assets/images/project2.png') center/cover
+                      no-repeat;
+                  "
+                ></div>
+                <div class="flex-1">
+                  <div class="font-semibold">Project Two</div>
+                  <div class="text-sm text-gray-400 mt-1">
+                    Short subtitle • 2024
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <div class="glass-border rounded-2xl p-4 flex gap-4 items-center">
+                <div
+                  class="w-28 h-20 rounded-lg overflow-hidden parallax"
+                  style="
+                    background: url('assets/images/project3.png') center/cover
+                      no-repeat;
+                  "
+                ></div>
+                <div class="flex-1">
+                  <div class="font-semibold">Project Three</div>
+                  <div class="text-sm text-gray-400 mt-1">
+                    Short subtitle • 2023
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="projects" class="mt-12">
+        <h3 class="text-2xl font-semibold mb-4">Project Gallery</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article
+            class="rounded-2xl overflow-hidden parallax reveal"
+            style="
+              background: url('assets/images/project1.png') center/cover
+                no-repeat;
+              min-height: 180px;
+            "
+          ></article>
+          <article
+            class="rounded-2xl overflow-hidden parallax reveal"
+            style="
+              background: url('assets/images/project2.png') center/cover
+                no-repeat;
+              min-height: 180px;
+            "
+          ></article>
+          <article
+            class="rounded-2xl overflow-hidden parallax reveal"
+            style="
+              background: url('assets/images/project3.png') center/cover
+                no-repeat;
+              min-height: 180px;
+            "
+          ></article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="mt-12 text-center">
+        <div class="glass-border rounded-2xl p-6 inline-block text-left">
+          <h4 class="font-semibold">Get in touch</h4>
+          <p class="text-sm text-gray-400 mt-2">
+            Email: <span class="text-gray-200">you@domain.com</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-16 py-8 text-center text-gray-400">
+      © 2025 ABC — DevSpace. All rights reserved.
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      const lines = [
+        '<div class="flex flex-col items-center gap-6 p-7 md:flex-row md:gap-8 rounded-2xl">',
+        "<div>",
+        '  <img class="size-48 shadow-xl rounded-md" alt="" src="/img/cover.png" />',
+        "</div>",
+        '<div class="flex items-center md:items-start">',
+        '  <span class="text-2xl font-medium">Class Warfare</span>',
+        '  <span class="font-medium text-sky-400">The Anti-Patterns</span>',
+        '  <span class="flex gap-2 font-medium text-gray-500">',
+        "    <span>No. 4</span>",
+        "    <span>•</span>",
+        "    <span>2025</span>",
+        "  </span>",
+        "</div>",
+        "</div>",
+      ];
+
+      const codeArea = document.getElementById("codeArea");
+      let lineIndex = 0,
+        charIndex = 0;
+
+      function typeNextChar() {
+        if (lineIndex >= lines.length) return;
+        const line = lines[lineIndex];
+        if (charIndex === 0) {
+          const lineNode = document.createElement("div");
+          lineNode.className = "code-line";
+          codeArea.appendChild(lineNode);
+        }
+        const current = codeArea.querySelectorAll(".code-line")[lineIndex];
+        current.innerHTML =
+          line.slice(0, charIndex) + '<span class="type-cursor"></span>';
+        charIndex++;
+        if (charIndex > line.length) {
+          charIndex = 0;
+          lineIndex++;
+          setTimeout(typeNextChar, 250);
+        } else {
+          const speed = 14 + Math.random() * 30;
+          setTimeout(typeNextChar, speed);
+        }
+      }
+      setTimeout(typeNextChar, 600);
+
+      const observers = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      observers.forEach((el) => io.observe(el));
+
+      const cards = document.querySelectorAll(".parallax");
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (ev) => {
+          const rect = card.getBoundingClientRect();
+          const x = (ev.clientX - rect.left) / rect.width - 0.5;
+          const y = (ev.clientY - rect.top) / rect.height - 0.5;
+          const rx = (y * 6).toFixed(2);
+          const ry = (x * -8).toFixed(2);
+          card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
+          card.style.boxShadow =
+            "0 18px 40px rgba(2,6,23,0.6), 0 6px 18px rgba(56,189,248,0.06)";
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+          card.style.boxShadow = "";
+        });
+        card.addEventListener("click", () => {
+          const src = card.style.backgroundImage.match(
+            /url\\(['\"]?(.*?)['\"]?\\)/
+          )?.[1];
+          if (!src) return;
+          const modal = document.createElement("div");
+          modal.style =
+            "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.8);z-index:9999";
+          const img = document.createElement("img");
+          img.src = src;
+          img.style =
+            "max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 20px 50px rgba(2,6,23,0.7)";
+          modal.appendChild(img);
+          modal.addEventListener("click", () => modal.remove());
+          document.body.appendChild(modal);
+        });
+      });
+    </script>
+  </body>
+</html>
