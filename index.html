@@ -68,12 +68,37 @@
         backdrop-filter: blur(8px);
       }
 
+      /* ✅ Image hover animation */
       .image-animate {
         transition: transform 0.6s ease, box-shadow 0.5s ease;
       }
       .image-animate:hover {
         transform: scale(1.05) rotate(1deg);
         box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
+      }
+
+      /* ✅ Photo Gallery animation */
+      .parallax {
+        transition: transform 0.6s ease, box-shadow 0.5s ease;
+        cursor: pointer;
+      }
+      .parallax:hover {
+        transform: scale(1.08) rotate(1deg);
+        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+      }
+
+      /* ✅ Hero Section Animations */
+      .hero-text,
+      .hero-profile {
+        transition: transform 0.6s ease, box-shadow 0.5s ease;
+      }
+      .hero-text:hover {
+        transform: translateY(-6px);
+        text-shadow: 0 0 18px rgba(59, 130, 246, 0.8);
+      }
+      .hero-profile:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(59, 130, 246, 0.4);
       }
     </style>
   </head>
@@ -138,7 +163,7 @@
     <main class="max-w-6xl mx-auto px-6 py-12">
       <!-- HERO -->
       <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-7 hero-text">
           <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
             Unique, Modern Developer Portfolio<br class="hidden sm:inline" />
             with Smooth Code Animations ✨
@@ -163,7 +188,9 @@
         </div>
 
         <!-- Profile -->
-        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+        <div
+          class="lg:col-span-5 flex justify-center lg:justify-end hero-profile"
+        >
           <div
             class="glass-border rounded-2xl p-4 w-full max-w-xs flex flex-col items-center"
           >
@@ -183,7 +210,6 @@
       <!-- SHOWCASE -->
       <section id="showcase" class="mt-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          <!-- Left Code Animation -->
           <div class="lg:col-span-7 glass-border rounded-2xl p-6 reveal">
             <h2 class="text-lg font-semibold text-sky-400 mb-3">
               Live Code Preview
@@ -194,7 +220,6 @@
             ><code id="codeBox" class="language-javascript"></code></pre>
           </div>
 
-          <!-- Right Image Showcase -->
           <div class="lg:col-span-5 flex flex-col gap-4 justify-center reveal">
             <img
               src="assets/images/project2.png.png"
@@ -222,8 +247,8 @@
           <article
             class="rounded-2xl overflow-hidden glass-border parallax reveal"
             style="
-              background: url('assets/images/project5.png\ \(2\).png')
-                center/cover no-repeat;
+              background: url('assets/images/project5.png (2).png') center/cover
+                no-repeat;
               min-height: 180px;
             "
           ></article>
