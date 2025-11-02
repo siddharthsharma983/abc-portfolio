@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>ABC — Dev Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+
     <style>
       :root {
         --glass: rgba(255, 255, 255, 0.04);
@@ -20,6 +29,8 @@
             transparent 10%
           ),
           linear-gradient(180deg, #071023 0%, #0b1220 50%, #061018 100%);
+        color: #fff;
+        font-family: "Fira Code", monospace;
       }
 
       .type-cursor {
@@ -57,9 +68,12 @@
         backdrop-filter: blur(8px);
       }
 
-      .parallax {
-        transform-style: preserve-3d;
-        transition: transform 350ms ease-out, box-shadow 350ms ease;
+      .image-animate {
+        transition: transform 0.6s ease, box-shadow 0.5s ease;
+      }
+      .image-animate:hover {
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
       }
     </style>
   </head>
@@ -126,13 +140,12 @@
       <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-7">
           <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Clean, modern UI design<br class="hidden sm:inline" />
-            for developers & portfolios
+            Unique, Modern Developer Portfolio<br class="hidden sm:inline" />
+            with Smooth Code Animations ✨
           </h1>
           <p class="mt-4 text-gray-400 max-w-2xl">
-            Customized portfolio layout with animated code preview and
-            interactive project cards — optimized for interviews and GitHub
-            showcases.
+            A custom-built animated developer portfolio with interactive code,
+            smooth visuals, and motion-based UI components.
           </p>
 
           <div class="mt-6 flex gap-3">
@@ -155,130 +168,77 @@
             class="glass-border rounded-2xl p-4 w-full max-w-xs flex flex-col items-center"
           >
             <img
-              src="assets/images/profile.png"
+              src="assets/images/project1.png.png"
               alt="Profile"
               class="w-36 h-36 rounded-full border-4 border-sky-500 object-cover shadow-xl"
             />
             <h3 class="mt-4 font-semibold">Your Name</h3>
             <p class="text-xs text-gray-400 mt-1 text-center">
-              Frontend Developer · UI / UX · Tailwind enthusiast
+              Frontend Developer · UI / UX · Tailwind Enthusiast
             </p>
           </div>
         </div>
       </section>
 
       <!-- SHOWCASE -->
-      <section id="showcase" class="mt-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-7 reveal glass-border rounded-2xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-sky-400 rounded-full mt-2"></div>
-              <div class="w-full">
-                <div class="flex items-center justify-between">
-                  <div class="text-sm font-medium text-gray-300">
-                    Live Code Preview
-                  </div>
-                  <div class="text-xs text-gray-400">
-                    Type animation • read-only
-                  </div>
-                </div>
-
-                <pre
-                  id="codeArea"
-                  class="mt-4 bg-[#07090d] text-gray-200 rounded-xl p-5 overflow-x-auto"
-                  style="
-                    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-                      'Roboto Mono', monospace;
-                    min-height: 220px;
-                  "
-                ></pre>
-              </div>
-            </div>
+      <section id="showcase" class="mt-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Left Code Animation -->
+          <div class="lg:col-span-7 glass-border rounded-2xl p-6 reveal">
+            <h2 class="text-lg font-semibold text-sky-400 mb-3">
+              Live Code Preview
+            </h2>
+            <pre
+              class="language-javascript bg-[#07090d] p-5 rounded-xl overflow-x-auto"
+              style="min-height: 220px"
+            ><code id="codeBox" class="language-javascript"></code></pre>
           </div>
 
-          <!-- Project cards -->
-          <div class="lg:col-span-5 space-y-6">
-            <div class="reveal">
-              <div class="glass-border rounded-2xl p-4 flex gap-4 items-center">
-                <div
-                  class="w-28 h-20 rounded-lg overflow-hidden parallax shadow-sm"
-                  style="
-                    background: url('assets/images/project1.png') center/cover
-                      no-repeat;
-                  "
-                ></div>
-                <div class="flex-1">
-                  <div class="font-semibold">Project One</div>
-                  <div class="text-sm text-gray-400 mt-1">
-                    Short subtitle • 2025
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="reveal">
-              <div class="glass-border rounded-2xl p-4 flex gap-4 items-center">
-                <div
-                  class="w-28 h-20 rounded-lg overflow-hidden parallax"
-                  style="
-                    background: url('assets/images/project2.png') center/cover
-                      no-repeat;
-                  "
-                ></div>
-                <div class="flex-1">
-                  <div class="font-semibold">Project Two</div>
-                  <div class="text-sm text-gray-400 mt-1">
-                    Short subtitle • 2024
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="reveal">
-              <div class="glass-border rounded-2xl p-4 flex gap-4 items-center">
-                <div
-                  class="w-28 h-20 rounded-lg overflow-hidden parallax"
-                  style="
-                    background: url('assets/images/project3.png') center/cover
-                      no-repeat;
-                  "
-                ></div>
-                <div class="flex-1">
-                  <div class="font-semibold">Project Three</div>
-                  <div class="text-sm text-gray-400 mt-1">
-                    Short subtitle • 2023
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- Right Image Showcase -->
+          <div class="lg:col-span-5 flex flex-col gap-4 justify-center reveal">
+            <img
+              src="assets/images/project2.png.png"
+              alt="Project 1"
+              class="rounded-2xl image-animate w-[85%] mx-auto"
+            />
+            <img
+              src="assets/images/project3.png.png"
+              alt="Project 2"
+              class="rounded-2xl image-animate w-[85%] mx-auto"
+            />
+            <img
+              src="assets/images/project4.png.png"
+              alt="Project 3"
+              class="rounded-2xl image-animate w-[85%] mx-auto"
+            />
           </div>
         </div>
       </section>
 
-      <!-- GALLERY -->
-      <section id="projects" class="mt-12">
-        <h3 class="text-2xl font-semibold mb-4">Project Gallery</h3>
+      <!-- PHOTOES -->
+      <section id="projects" class="mt-16">
+        <h3 class="text-2xl font-semibold mb-4">PHOTOES Gallery</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <article
-            class="rounded-2xl overflow-hidden parallax reveal"
+            class="rounded-2xl overflow-hidden glass-border parallax reveal"
             style="
-              background: url('assets/images/project1.png') center/cover
+              background: url('assets/images/project5.png\ \(2\).png')
+                center/cover no-repeat;
+              min-height: 180px;
+            "
+          ></article>
+          <article
+            class="rounded-2xl overflow-hidden glass-border parallax reveal"
+            style="
+              background: url('assets/images/project6.png.png') center/cover
                 no-repeat;
               min-height: 180px;
             "
           ></article>
           <article
-            class="rounded-2xl overflow-hidden parallax reveal"
+            class="rounded-2xl overflow-hidden glass-border parallax reveal"
             style="
-              background: url('assets/images/project2.png') center/cover
-                no-repeat;
-              min-height: 180px;
-            "
-          ></article>
-          <article
-            class="rounded-2xl overflow-hidden parallax reveal"
-            style="
-              background: url('assets/images/project3.png') center/cover
+              background: url('assets/images/project7.png.png') center/cover
                 no-repeat;
               min-height: 180px;
             "
@@ -287,7 +247,7 @@
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="mt-12 text-center">
+      <section id="contact" class="mt-16 text-center">
         <div class="glass-border rounded-2xl p-6 inline-block text-left">
           <h4 class="font-semibold">Get in touch</h4>
           <p class="text-sm text-gray-400 mt-2">
@@ -297,58 +257,52 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="mt-16 py-8 text-center text-gray-400">
       © 2025 ABC — DevSpace. All rights reserved.
     </footer>
 
     <!-- SCRIPT -->
     <script>
-      const lines = [
-        '<div class="flex flex-col items-center gap-6 p-7 md:flex-row md:gap-8 rounded-2xl">',
-        "<div>",
-        '  <img class="size-48 shadow-xl rounded-md" alt="" src="/img/cover.png" />',
-        "</div>",
-        '<div class="flex items-center md:items-start">',
-        '  <span class="text-2xl font-medium">Class Warfare</span>',
-        '  <span class="font-medium text-sky-400">The Anti-Patterns</span>',
-        '  <span class="flex gap-2 font-medium text-gray-500">',
-        "    <span>No. 4</span>",
-        "    <span>•</span>",
-        "    <span>2025</span>",
-        "  </span>",
-        "</div>",
-        "</div>",
-      ];
+      const codeText = `function addTask(task) {
+  const newTask = {
+    id: Date.now(),
+    text: task,
+    completed: false,
+  };
+  tasks.push(newTask);
+  renderTask(newTask);
+}
 
-      const codeArea = document.getElementById("codeArea");
-      let lineIndex = 0,
-        charIndex = 0;
+document.getElementById("add-task-btn").addEventListener("click", () => {
+  const input = document.getElementById("todo-input");
+  if (input.value.trim() === "") return;
+  addTask(input.value);
+  input.value = "";
+});`;
 
-      function typeNextChar() {
-        if (lineIndex >= lines.length) return;
-        const line = lines[lineIndex];
-        if (charIndex === 0) {
-          const lineNode = document.createElement("div");
-          lineNode.className = "code-line";
-          codeArea.appendChild(lineNode);
-        }
-        const current = codeArea.querySelectorAll(".code-line")[lineIndex];
-        current.innerHTML =
-          line.slice(0, charIndex) + '<span class="type-cursor"></span>';
-        charIndex++;
-        if (charIndex > line.length) {
-          charIndex = 0;
-          lineIndex++;
-          setTimeout(typeNextChar, 250);
-        } else {
-          const speed = 14 + Math.random() * 30;
-          setTimeout(typeNextChar, speed);
+      const codeBox = document.getElementById("codeBox");
+      let index = 0;
+
+      function typeCode() {
+        if (index < codeText.length) {
+          codeBox.textContent += codeText.charAt(index);
+          Prism.highlightElement(codeBox);
+          index++;
+          setTimeout(typeCode, 22);
         }
       }
-      setTimeout(typeNextChar, 600);
 
-      const observers = document.querySelectorAll(".reveal");
+      window.addEventListener("scroll", () => {
+        const section = codeBox.getBoundingClientRect().top;
+        if (
+          section < window.innerHeight - 100 &&
+          codeBox.textContent.length === 0
+        ) {
+          typeCode();
+        }
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -357,41 +311,7 @@
         },
         { threshold: 0.12 }
       );
-      observers.forEach((el) => io.observe(el));
-
-      const cards = document.querySelectorAll(".parallax");
-      cards.forEach((card) => {
-        card.addEventListener("mousemove", (ev) => {
-          const rect = card.getBoundingClientRect();
-          const x = (ev.clientX - rect.left) / rect.width - 0.5;
-          const y = (ev.clientY - rect.top) / rect.height - 0.5;
-          const rx = (y * 6).toFixed(2);
-          const ry = (x * -8).toFixed(2);
-          card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
-          card.style.boxShadow =
-            "0 18px 40px rgba(2,6,23,0.6), 0 6px 18px rgba(56,189,248,0.06)";
-        });
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "";
-          card.style.boxShadow = "";
-        });
-        card.addEventListener("click", () => {
-          const src = card.style.backgroundImage.match(
-            /url\\(['\"]?(.*?)['\"]?\\)/
-          )?.[1];
-          if (!src) return;
-          const modal = document.createElement("div");
-          modal.style =
-            "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.8);z-index:9999";
-          const img = document.createElement("img");
-          img.src = src;
-          img.style =
-            "max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 20px 50px rgba(2,6,23,0.7)";
-          modal.appendChild(img);
-          modal.addEventListener("click", () => modal.remove());
-          document.body.appendChild(modal);
-        });
-      });
+      reveals.forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
